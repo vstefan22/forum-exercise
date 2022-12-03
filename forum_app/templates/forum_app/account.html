@@ -1,0 +1,12 @@
+{%extends 'forum_app/base.html' %}
+{%block content%}
+{%for i in user%}
+<p style="font-size: 21px;">Username: {{i.username}}</p>
+<p style="font-size: 21px;">Name: {{i.first_name}} {{i.last_name}}</p>
+
+
+
+
+<br>
+{%endfor%}
+{%endblock%}

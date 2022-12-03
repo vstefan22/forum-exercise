@@ -1,0 +1,91 @@
+{%extends 'forum_app/base.html' %}
+{%block content%}
+
+{%for i in post%}
+
+<div>
+    <h1 style="text-align: center;">{{i.title}}</h1>
+    <br>
+    <p class="h3">Author: {{i.author}}</p>
+    <p class="h5">
+
+        Opis:
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;{{i.description}}
+    </p>
+
+    {{i.date}}
+    <br>
+    <hr>
+
+</div>
+{%endfor%}
+
+
+
+
+
+<form action="" method="post">
+    {%csrf_token%}
+    <section>
+        <div>
+            <div>
+                <div class="col-md-12 col-lg-10 col-xl-8">
+                    <div class="card">
+                        <div class="card-footer" style="background-color: orange;">
+                            <div class=" d-flex flex-start w-100">
+
+                                <div class="form-outline">
+                                    <label for="" class="text-light" style="font-weight: 600; font-size: 18px;">Objavi
+                                        komentar kao
+                                        {{request.user.username}}:</label>
+                                    <br>
+                                    <textarea name="comment" id="" cols="100" rows="5"></textarea>
+                                </div>
+                            </div>
+                            <div class="float-end mt-2 pt-1">
+                                <button type="submit" class="btn btn-light btn-sm">Post
+                                    comment</button>
+                                <button type="reset" class="btn btn-outline-light btn-sm">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div>
+            <div>
+                {% for i in comments%}
+                <div class="col-md-12 col-lg-10">
+                    <div class="card text-dark">
+                        <div class="card-body p-4">
+                            <div class="d-flex flex-start">
+
+                                <div>
+
+                                    <h6 class="fw-bold mb-1">{{request.user.username}}</h6>
+
+                                    <div class="d-flex align-items-center mb-3">
+                                        <p class="mb-0">
+                                            {{i.date}}
+                                        </p>
+
+                                    </div>
+                                    <p class="mb-0">
+                                        {{i.comment}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="my-0" style="height: 1px;" />
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </section>
+    </div>
+    {%endblock%}

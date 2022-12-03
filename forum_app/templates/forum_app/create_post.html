@@ -1,0 +1,16 @@
+{%extends 'forum_app/base.html' %}
+{%block content%}
+<h1 style="text-align: center;">Create post</h1>
+<form method="post" style="margin: 30px;" class="mb-3">
+    {%csrf_token%}
+    <br><br>
+    <label for="" class="form-label">Title</label>
+    <input type="text" name="title" class="form-control">
+    <br>
+    <br>
+    <label for="" class="form-label">Description</label>
+    <textarea name="description" id="" cols="30" rows="10" class="form-control"></textarea>
+    <br>
+    <input type="submit">
+</form>
+{%endblock%}
